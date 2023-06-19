@@ -30,3 +30,13 @@ static inline PCM_16* ENCODE_PCM(PCM_16* PCM, ENCODER* ENCODER, U16 OUTPUT, U8 E
 
 	return ENCODER->TYPE(OUTPUT);
 }
+
+static inline PCM_16* DECODE_PCM(PCM_16* PCM, ENCODER* DECODER, U16 OUTPUT)
+{
+	for (U32 E = 0; E < PCM_CHANNELS; E++)
+	{
+		PCM->OUTPUT[E] += (U16)(PCM->ARRAY[E], 0);
+	}
+
+	return DECODER->TYPE(OUTPUT);
+}
